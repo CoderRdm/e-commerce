@@ -14,9 +14,8 @@ const UserSchema = mongoose.Schema({
         type: Array,
         default :[]
     },
-    picture: String,
-    isadmin: Boolean
+    picture: String
 
 });
 
-module.export= mongoose.model("user",UserSchema);
+module.exports= mongoose.model("user",UserSchema);

@@ -2,9 +2,7 @@ const mongoose = require('mongoose');
 
 const OwnerSchema = mongoose.Schema({
     Name : {
-        typr:String,
-        minLength: 3,
-        trim:true
+        type:String
     },
     email :String,
     contactno: Number,
@@ -18,4 +16,4 @@ const OwnerSchema = mongoose.Schema({
 
 });
 
-module.export= mongoose.model("owner",OwnerSchema);
+module.exports= mongoose.model("owner",OwnerSchema);
