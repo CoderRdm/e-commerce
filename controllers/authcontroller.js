@@ -50,7 +50,8 @@ module.exports.loginUser = async function (req, res) {
 
     let user = await usermodel.findOne({ email: email });
     if (!user) {
-        return res.send("Email or password incorrrect")
+        res.send("Email or password incorrrect");
+        res.redirect("/")
     }
 
     bcrypt.compare(password, user.password,async function (err, result) {
@@ -58,6 +59,7 @@ module.exports.loginUser = async function (req, res) {
        let token= generateToken(user);
        res.cookie("token",token);
        res.send("you are loggned in ")
+       res.render("shop")
        }
        else{
         res.send("incorrect password ")
@@ -71,5 +73,5 @@ module.exports.loginUser = async function (req, res) {
 
 module.exports.logoutUser= async function(req,res){
     res.cookie("token","");
-    response.redirect("/");
+    res.redirect("/");
 }

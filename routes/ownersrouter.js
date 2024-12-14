@@ -1,11 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const ownerModel= require('../models/owner');
-
-
-router.get("/",function(req,res){
-    res.send("hey");
-})
+const flash= require('flash')
 
 console.log(process.env.NODE_ENV);
 
@@ -29,4 +25,11 @@ let createdowner=await ownerModel.create({
    res.status(201).send(createdowner)
 })
 }
+
+router.get("/admin",function(req,res){
+    let success=req.flash("success");
+    res.render("createproducts",{success});
+})
+
+
 module.exports = router ;
