@@ -1,4 +1,8 @@
+<%- include('./partials/header') %>
+
+
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,9 +10,13 @@
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="w-full h-screen flex items-start px-20 py-20">
-        <div class="w-[25%] flex h-screen flex-col items-start">
+<body class="bg-fuchsia-300	">
+
+ 
+
+
+    <div class="w-full h-screen flex items-start px-20 py-20 bg-fuchsia-100	">
+        <div class="w-[25%] flex h-screen flex-col items-start ">
             <div class="flex items-center gap-2">
                 <h3>sort by</h3>
                 <form action="/shop">
@@ -48,8 +56,8 @@
                         <%= product.price %>
         
                     </h4>
-                    <a class="w-7 h-7 flex items-center justify-center rounded-full bg-yellow-100" href="">
-                        <i class="ri-add-line"></i>
+                    <a class="w-7 h-7 flex items-center justify-center rounded-full bg-yellow-100" href="/addtocart/<%= product._id %>">
+                       plus
                     </a>
                 </div>
                
@@ -63,3 +71,4 @@
     </div>
 </body>
 </html>
+<%- include('./partials/footer') %>
